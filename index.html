@@ -3,22 +3,207 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noman - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Noman's Portfolio - Under Construction 🚧</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        .construction-emoji {
+            font-size: 5em;
+            display: inline-block;
+            animation: spin 3s linear infinite;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            margin: 20px 0;
+            opacity: 0.9;
+        }
+
+        .progress-container {
+            width: 100%;
+            max-width: 500px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #00f260, #0575e6);
+            width: 0%;
+            animation: loading 3s ease-in-out infinite;
+            border-radius: 15px;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .message {
+            font-size: 1.2em;
+            margin: 30px 0;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            margin-top: 40px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 12px 25px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links a:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .fun-fact {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            font-style: italic;
+        }
+
+        /* Floating elements animation */
+        .floating {
+            position: absolute;
+            font-size: 3em;
+            opacity: 0.3;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .floating:nth-child(2) { top: 70%; left: 80%; animation-delay: 2s; }
+        .floating:nth-child(3) { top: 50%; left: 5%; animation-delay: 4s; }
+        .floating:nth-child(4) { top: 20%; left: 85%; animation-delay: 1s; }
+        .floating:nth-child(5) { top: 80%; left: 15%; animation-delay: 3s; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes loading {
+            0% { width: 0%; }
+            50% { width: 75%; }
+            100% { width: 0%; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        .blink {
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5em; }
+            .subtitle { font-size: 1.2em; }
+            .construction-emoji { font-size: 4em; }
+            .message { font-size: 1em; }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>The Website is still underconstruction</h1>
-        <nav>
-            Please visit my LinkedIn Profile. <a href="https://www.linkedin.com/in/engrmnoman/">https://www.linkedin.com/in/engrmnoman/ </a> Thanks
-        </nav>
-    </header>
-    
+    <div class="floating">⚙️</div>
+    <div class="floating">🔧</div>
+    <div class="floating">💻</div>
+    <div class="floating">🎨</div>
+    <div class="floating">🚀</div>
 
-    
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: noman@dgist.ac.kr</p>
-    </section>
+    <div class="container">
+        <div class="construction-emoji">🚧</div>
+        <h1>Oops! Still Cooking...</h1>
+        <p class="subtitle">Noman's Portfolio is Under Construction</p>
+        
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+            <div class="progress-text">Loading Awesomeness...</div>
+        </div>
+
+        <div class="message">
+            <p>🎯 Currently building something amazing!</p>
+            <p>💪 Coding, designing, and perfecting every pixel</p>
+            <p class="blink">⏰ Expected Launch: Soon™</p>
+        </div>
+
+        <div class="fun-fact">
+            <strong>Fun Fact:</strong> This page took longer to make than it should have, 
+            but at least it's more interesting than a plain "Under Construction" sign! 😄
+        </div>
+
+        <div class="social-links">
+            <a href="https://github.com/engrmnoman" target="_blank">🐙 GitHub</a>
+            <a href="mailto:noman@dgist.ac.kr">📧 Email</a>
+            <a href="https://linkedin.com/in/engrmnoman" target="_blank">💼 LinkedIn</a>
+        </div>
+
+        <p style="margin-top: 40px; opacity: 0.8; font-size: 0.9em;">
+            Meanwhile, feel free to check out my GitHub repos! 🚀
+        </p>
+    </div>
 </body>
 </html>
