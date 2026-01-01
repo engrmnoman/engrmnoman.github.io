@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noman's Portfolio - Under Construction 🚧</title>
+    <title>Muhammad Noman - Robotics Engineer & GPU Computing Specialist</title>
     <style>
         * {
             margin: 0;
@@ -11,199 +11,856 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #f9fafb;
+            --white: #ffffff;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            overflow: hidden;
-            position: relative;
+            padding: 0 2rem;
         }
 
-        .container {
-            text-align: center;
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            z-index: 10;
-            padding: 20px;
+            padding: 150px 2rem 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
             max-width: 800px;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            animation: bounce 2s infinite;
-        }
-
-        .construction-emoji {
-            font-size: 5em;
-            display: inline-block;
-            animation: spin 3s linear infinite;
-        }
-
-        .subtitle {
-            font-size: 1.5em;
-            margin: 20px 0;
+            margin: 0 auto 2rem;
             opacity: 0.9;
         }
 
-        .progress-container {
-            width: 100%;
-            max-width: 500px;
-            height: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 15px;
-            margin: 30px auto;
-            overflow: hidden;
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary-color);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-dark);
             position: relative;
         }
 
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #00f260, #0575e6);
-            width: 0%;
-            animation: loading 3s ease-in-out infinite;
-            border-radius: 15px;
+        section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 1rem auto 0;
+            border-radius: 2px;
         }
 
-        .progress-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
             font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .education-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+
+        .education-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        .education-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .education-institution {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-details {
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        .education-details li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-tag {
+            background: var(--bg-light);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            transition: all 0.3s;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary-color);
             color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            transform: translateY(-2px);
         }
 
-        .message {
-            font-size: 1.2em;
-            margin: 30px 0;
-            line-height: 1.6;
+        /* Research Section */
+        .research-grid {
+            display: grid;
+            gap: 2rem;
         }
 
-        .social-links {
-            margin-top: 40px;
+        .research-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--primary-color);
         }
 
-        .social-links a {
-            display: inline-block;
-            margin: 0 15px;
+        .research-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .research-item p {
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Publications Section */
+        .publication-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .publication-title {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-details {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tech-badge {
+            background: var(--bg-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--primary-color);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg-light);
+            border-radius: 10px;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+        }
+
+        .contact-details h4 {
+            color: var(--text-dark);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-details a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .social-links-section {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background: var(--primary-color);
             color: white;
             text-decoration: none;
-            font-size: 1.1em;
-            padding: 12px 25px;
-            background: rgba(255, 255, 255, 0.2);
             border-radius: 25px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            transition: all 0.3s;
         }
 
-        .social-links a:hover {
-            background: rgba(255, 255, 255, 0.4);
+        .social-link:hover {
+            background: var(--secondary-color);
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .fun-fact {
-            margin-top: 30px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            font-style: italic;
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
         }
 
-        /* Floating elements animation */
-        .floating {
-            position: absolute;
-            font-size: 3em;
-            opacity: 0.3;
-            animation: float 6s ease-in-out infinite;
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .floating:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
-        .floating:nth-child(2) { top: 70%; left: 80%; animation-delay: 2s; }
-        .floating:nth-child(3) { top: 50%; left: 5%; animation-delay: 4s; }
-        .floating:nth-child(4) { top: 20%; left: 85%; animation-delay: 1s; }
-        .floating:nth-child(5) { top: 80%; left: 15%; animation-delay: 3s; }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes loading {
-            0% { width: 0%; }
-            50% { width: 75%; }
-            100% { width: 0%; }
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(180deg); }
-        }
-
-        .blink {
-            animation: blink 1.5s infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5em; }
-            .subtitle { font-size: 1.2em; }
-            .construction-emoji { font-size: 4em; }
-            .message { font-size: 1em; }
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 60px 1rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="floating">⚙️</div>
-    <div class="floating">🔧</div>
-    <div class="floating">💻</div>
-    <div class="floating">🎨</div>
-    <div class="floating">🚀</div>
-
-    <div class="container">
-        <div class="construction-emoji">🚧</div>
-        <h1>Oops! Still Cooking...</h1>
-        <p class="subtitle">Noman's Portfolio is Under Construction</p>
-        
-        <div class="progress-container">
-            <div class="progress-bar"></div>
-            <div class="progress-text">Loading Awesomeness...</div>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Muhammad Noman</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
+    </nav>
 
-        <div class="message">
-            <p>🎯 Currently building something amazing!</p>
-            <p>💪 Coding, designing, and perfecting every pixel</p>
-            <p class="blink">⏰ Expected Launch: Soon™</p>
-        </div>
-
-        <div class="fun-fact">
-            <strong>Fun Fact:</strong> This page took longer to make than it should have, 
-            but at least it's more interesting than a plain "Under Construction" sign! 😄
-        </div>
-
-        <div class="social-links">
-            <a href="https://github.com/engrmnoman" target="_blank">🐙 GitHub</a>
-            <a href="mailto:noman@dgist.ac.kr">📧 Email</a>
-            <a href="https://linkedin.com/in/engrmnoman" target="_blank">💼 LinkedIn</a>
-        </div>
-
-        <p style="margin-top: 40px; opacity: 0.8; font-size: 0.9em;">
-            Meanwhile, feel free to check out my GitHub repos! 🚀
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Muhammad Noman</h1>
+        <p class="subtitle">Robotics Engineer & GPU Computing Specialist</p>
+        <p class="description">
+            MS in Robotics Engineering from DGIST | Specializing in GPU-Accelerated Medical Imaging, 
+            Real-time Ultrasound Processing & CUDA Programming
         </p>
-    </div>
-</body>
-</html>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn btn-primary">Get In Touch</a>
+            <a href="https://github.com/engrmnoman" target="_blank" class="btn btn-secondary">View GitHub</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Hello! I'm Noman</h3>
+                <p>
+                    I'm a Post-MS Researcher at DGIST's Information and Communication Engineering Research Center, 
+                    specializing in GPU-accelerated algorithms for real-time medical imaging systems.
+                </p>
+                <p>
+                    My research focuses on developing high-performance computing solutions for ultrasound and 
+                    optical coherent imaging using CUDA, C++, and OpenGL. I'm passionate about leveraging 
+                    parallel computing to push the boundaries of real-time medical diagnostics.
+                </p>
+                <p>
+                    With a background in software engineering and extensive experience in machine learning, 
+                    I bridge the gap between theoretical algorithms and practical, deployable medical imaging systems.
+                </p>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Publications</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">3.58</div>
+                    <div class="stat-label">MS GPA / 4.30</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">51x</div>
+                    <div class="stat-label">GPU Speedup Achieved</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Years Experience</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-grid">
+            <div class="education-card">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">MS in Robotics Engineering</div>
+                        <div class="education-institution">
+                            Daegu Gyeongbuk Institute of Science & Technology (DGIST), South Korea
+                        </div>
+                    </div>
+                    <div class="education-date">Aug 2023 - Aug 2025</div>
+                </div>
+                <p><strong>GPA:</strong> 3.58/4.30 (92.8/100)</p>
+                <p><strong>Thesis:</strong> "Real-time GPU-accelerated Ultra-Fast Flow imaging: System Development, Validation and Potential Applications"</p>
+                <ul class="education-details">
+                    <li><strong>Research Focus:</strong> GPU-Beamforming, SVD Clutter Filtering, Ultrasound Signal Processing</li>
+                    <li><strong>Key Courses:</strong> Medical Imaging (A0), CUDA Programming (A-), Deep Learning (A+), Advanced Medical Imaging (A0)</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">BSc Software Engineering</div>
+                        <div class="education-institution">
+                            University of Science and Technology (UST), Bannu, Pakistan
+                        </div>
+                    </div>
+                    <div class="education-date">Aug 2015 - Dec 2019</div>
+                </div>
+                <p><strong>CGPA:</strong> 3.79/4.00</p>
+                <p><strong>Thesis:</strong> Android-Based Application to Find Nearest Mechanic Services</p>
+                <ul class="education-details">
+                    <li><strong>Achievement:</strong> Overall 2nd Position in Department</li>
+                    <li><strong>Scholarship:</strong> Merit Scholarship Holder (2015-2019)</li>
+                    <li><strong>Key Courses:</strong> AI, Data Structures, Software Engineering, Web Engineering, Database Systems</li>
+                </ul>
+            </div>
+
+            <div class="education-card">
+                <div class="education-header">
+                    <div>
+                        <div class="education-title">Advanced Computer Architecture Summer School</div>
+                        <div class="education-institution">University of Washington</div>
+                    </div>
+                    <div class="education-date">June - July 2024</div>
+                </div>
+                <ul class="education-details">
+                    <li>Intensive program on high-performance programming for Intel CPUs and NVIDIA GPUs</li>
+                    <li>Expertise in parallel computing architectures and CUDA optimization</li>
+                    <li>Developed algorithms for GPU-accelerated signal/image/video processing</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Experience -->
+    <section id="research">
+        <h2>Research Experience</h2>
+        <div class="research-grid">
+            <div class="research-item">
+                <h3>Post-MS Researcher</h3>
+                <p><strong>Information and Communication Engineering Research Center, DGIST</strong></p>
+                <p><em>2025 - Present</em></p>
+                <ul>
+                    <li>Developing GPU-accelerated algorithms for real-time Coherent Optical imaging using CUDA, C++, OpenGL, Qt++</li>
+                    <li>Designing framework for OCT Imaging with improved computational efficiency</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <h3>Research Assistant</h3>
+                <p><strong>Advanced Ultrasound Research Laboratory, DGIST</strong></p>
+                <p><em>2023 - 2025</em></p>
+                <ul>
+                    <li>Developed GPU-accelerated algorithms for real-time ultrasound imaging using CUDA and C++</li>
+                    <li>Implemented EVD-based clutter filtering algorithms for microvascular flow detection</li>
+                    <li>Created optimized signal processing pipelines for high-frame-rate ultrasound acquisition</li>
+                    <li>Validated system through phantom and in vivo studies (human carotid, kidney, mouse brain)</li>
+                </ul>
+            </div>
+
+            <div class="research-item">
+                <h3>Research Assistant</h3>
+                <p><strong>Machine Learning and AI Lab, UST, Pakistan</strong></p>
+                <p><em>2018 - 2019</em></p>
+                <ul>
+                    <li>Contributed to AI/ML research projects focused on image processing and pattern recognition</li>
+                    <li>Implemented sentiment analysis of Twitter posts using TextBlob, NLTK, and Tweepy</li>
+                    <li>Collaborated on data analysis and classification algorithms for large datasets</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications" style="background: var(--bg-light);">
+        <h2>Selected Publications</h2>
+        <div>
+            <div class="publication-item">
+                <div class="publication-title">
+                    Acceleration of Delay-and-Sum Beamformer with Optimization GPU Memory Hierarchy for Real-Time Ultrafast Doppler
+                </div>
+                <div class="publication-details">
+                    <strong>Noman, M.</strong>, Myeongchan, K., Nizar, G., et al. | SPIE 2026 Canada
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    Deep Learning-Based Clutter Suppression for Single-Shot Ultrasound Flow Imaging
+                </div>
+                <div class="publication-details">
+                    Nizar, G., <strong>Noman, M.</strong>, Yu, J. | IEEE IUS 2025, Netherlands
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    Real-time GPU-accelerated ultra-fast flow imaging: System Development, validation and potential applications
+                </div>
+                <div class="publication-details">
+                    <strong>Noman, M.</strong>, Nizar, G., Yu, J. | In Preparation for IEEE TUFFC
+                </div>
+            </div>
+
+            <div class="publication-item">
+                <div class="publication-title">
+                    LungLiteUS: AI-Powered Portable Ultrasound for Lung Diagnostics in Resource-Limited Settings
+                </div>
+                <div class="publication-details">
+                    <strong>Noman, M.</strong>, Nizar, G., Yu, J. | Submitted to IEEE SNPD 2025
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>🔬 Medical Imaging</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Ultrasound Signal Processing</span>
+                    <span class="skill-tag">Beamforming</span>
+                    <span class="skill-tag">Clutter Filtering</span>
+                    <span class="skill-tag">Flow Imaging</span>
+                    <span class="skill-tag">Verasonics 256 System</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>⚡ GPU & Parallel Computing</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">CUDA</span>
+                    <span class="skill-tag">GPGPU</span>
+                    <span class="skill-tag">OpenGL</span>
+                    <span class="skill-tag">Memory Optimization</span>
+                    <span class="skill-tag">Parallel Algorithms</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>💻 Programming Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">C/C++</span>
+                    <span class="skill-tag">Qt C++</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MATLAB</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">PHP</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🤖 AI & Machine Learning</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">TensorFlow</span>
+                    <span class="skill-tag">PyTorch</span>
+                    <span class="skill-tag">Keras</span>
+                    <span class="skill-tag">NumPy</span>
+                    <span class="skill-tag">Pandas</span>
+                    <span class="skill-tag">Deep Learning</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🌐 Web Technologies</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML/CSS</span>
+                    <span class="skill-tag">Vue.js</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Nuxt</span>
+                    <span class="skill-tag">Django</span>
+                    <span class="skill-tag">CodeIgniter</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>🛠️ Tools & Others</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">MySQL</span>
+                    <span class="skill-tag">Software Testing</span>
+                    <span class="skill-tag">Requirements Engineering</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" style="background: var(--bg-light);">
+        <h2>Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Real-time GPU-Accelerated Ultrafast Flow Imaging</h3>
+                    <p class="project-description">
+                        Master's thesis project developing real-time ultrasound imaging system with CUDA-accelerated 
+                        beamforming and adaptive EVD-based clutter filtering. Achieved 4320 Hz for B-mode and 8 Hz 
+                        for blood flow imaging.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">CUDA</span>
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">Signal Processing</span>
+                        <span class="tech-badge">Real-time Systems</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">LungLiteUS: AI-Powered Portable Ultrasound</h3>
+                    <p class="project-description">
+                        Developed lightweight AI model for analyzing lung ultrasound images to detect COVID-19 and 
+                        pneumonia. Designed for wireless ultrasound systems in resource-limited settings with 88% accuracy.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">TensorFlow</span>
+                        <span class="tech-badge">FastAPI</span>
+                        <span class="tech-badge">CNN</span>
+                        <span class="tech-badge">Medical AI</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">GPU-Accelerated Beamforming with OpenGL</h3>
+                    <p class="project-description">
+                        Implemented and compared four beamforming algorithms (DAS, DMAS, CF, MV) achieving up to 
+                        1264.7x speedup with GPU implementations. Demonstrated real-time ultrasound image reconstruction.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">CUDA</span>
+                        <span class="tech-badge">OpenGL</span>
+                        <span class="tech-badge">C++</span>
+                        <span class="tech-badge">Performance Optimization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Hospital Management Information System</h3>
+                    <p class="project-description">
+                        Developed comprehensive HMIS for Mardan Medical Complex with modules for patient records, 
+                        appointments, billing, and medical staff management. Recognized by WHO standards.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-badge">PHP</span>
+                        <span class="tech-badge">CodeIgniter</span>
+                        <span class="tech-badge">MySQL</span>
+                        <span class="tech-badge">Healthcare IT</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-content">
+                    <h3 class="project-title">Online Character Certificate System</h3>
+                    <p class="project-description">
+                        Led end-to-end development for Sindh Police with advanced security measures, real-time status 
+                        tracking, and integration with existing police infrastructure.
+                    </p>
