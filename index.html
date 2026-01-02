@@ -545,6 +545,22 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 2rem;
         }
+        .hero-email {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+        
+        .hero-email a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        
+        .hero-email a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -614,6 +630,11 @@
             <div class="hero-text">
                 <h1>Muhammad Noman</h1>
                 <p class="subtitle">Graduate Research Student</p>
+                <p class="subtitle">Robotics Engineer & GPU Computing Specialist</p>
+                <p class="hero-email">
+                    <a href="mailto:noman@dgist.ac.kr">noman@dgist.ac.kr</a> | 
+                   
+                </p>
                 <p class="description">
                     MS in Robotics Engineering from DGIST | BSc in Software Engineering from USTB | Specializing in GPU-Accelerated Medical Imaging, 
                     Real-time Parallel Signals Processing
