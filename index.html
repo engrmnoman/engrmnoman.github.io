@@ -249,22 +249,25 @@
 
         /* About Section */
         .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
+            display: block;
         }
-
+        
+        .about-text {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
         .about-text h3 {
             color: var(--primary-color);
             margin-bottom: 1rem;
             font-size: 1.8rem;
         }
-
+        
         .about-text p {
             color: var(--text-light);
             margin-bottom: 1rem;
             font-size: 1.1rem;
+            line-height: 1.8;
         }
 
 
@@ -536,7 +539,12 @@
                 transform: translateY(0);
             }
         }
-
+        /* Awards Grid - 3 columns */
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -572,6 +580,9 @@
 
             .stats {
                 grid-template-columns: 1fr;
+            }
+            .awards-grid {
+        grid-template-columns: 1fr;
             }
 
             section {
@@ -651,25 +662,25 @@
     </section>
 
     <!-- About Section -->
-    <section id="about">
-        <h2>About Me</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Hello!</h3>
-                <p>
-                    I'm a Graduate Research Student at DGIST's Information and Communication Engineering Research Center, specializing in GPU-accelerated algorithms for real-time medical imaging systems.
-                </p>
-                <p>
-                    My research focuses on developing high-performance computing solutions for ultrasound and optical coherent imaging using CUDA, C++, and OpenGL. I'm passionate about leveraging 
-                    parallel computing to push the boundaries of real-time medical diagnostics.
-                </p>
-                <p>
-                    With a background in software engineering and extensive experience in machine learning, I bridge the gap between theoretical algorithms and practical, deployable medical imaging systems.
-                </p>
-            </div>
-            
+<!-- About Section -->
+<section id="about">
+    <h2>About Me</h2>
+    <div class="about-content">
+        <div class="about-text">
+            <p>
+                I'm a Post-MS Researcher at DGIST's Information and Communication Engineering Research Center, 
+                specializing in GPU-accelerated algorithms for real-time medical imaging systems. My research 
+                focuses on developing high-performance computing solutions for ultrasound and optical coherent 
+                imaging using CUDA, C++, and OpenGL.
+            </p>
+            <p>
+                I'm passionate about leveraging parallel computing to push the boundaries of real-time medical 
+                diagnostics. With a background in software engineering and extensive experience in machine learning, 
+                I bridge the gap between theoretical algorithms and practical, deployable medical imaging systems.
+            </p>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Education Section -->
     <section id="education">
@@ -1012,7 +1023,7 @@
     <!-- Honors & Awards -->
     <section id="awards">
         <h2>Honors & Awards</h2>
-        <div class="research-grid">
+        <div class="awards-grid">
             <div class="research-item">
                 <h3>🎓 DGIST Fully Funded Scholarship</h3>
                 <p>Master's degree scholarship (2023-2025)</p>
