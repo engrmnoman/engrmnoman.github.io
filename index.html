@@ -561,6 +561,83 @@
             opacity: 0.8;
             text-decoration: underline;
         }
+        /* Project Image Slider */
+.project-slider {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+    background: var(--bg-light);
+}
+
+.slider-images {
+    display: flex;
+    transition: transform 0.5s ease;
+    height: 100%;
+}
+
+.slider-image {
+    min-width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-nav {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 10;
+}
+
+.slider-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.slider-dot.active {
+    background: white;
+    width: 24px;
+    border-radius: 5px;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    transition: all 0.3s;
+    z-index: 10;
+}
+
+.slider-arrow:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-arrow.prev {
+    left: 10px;
+}
+
+.slider-arrow.next {
+    right: 10px;
+}
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
@@ -939,110 +1016,190 @@ Before moving into research, I worked as a Full-Stack Software Engineer in the h
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" style="background: var(--bg-light);">
-        <h2>Featured Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Real-time GPU-Accelerated Ultrafast Flow Imaging</h3>
-                    <p class="project-description">
-                        Master's thesis project developing real-time ultrasound imaging system with CUDA-accelerated 
-                        beamforming and adaptive EVD-based clutter filtering. Achieved 4320 Hz for B-mode and 8 Hz 
-                        for blood flow imaging.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">CUDA</span>
-                        <span class="tech-badge">C++</span>
-                        <span class="tech-badge">Signal Processing</span>
-                        <span class="tech-badge">Real-time Systems</span>
-                    </div>
+<!-- Projects Section -->
+<section id="projects" style="background: var(--bg-light);">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+        <!-- Project 1: Real-time GPU-Accelerated Ultrafast Flow Imaging -->
+        <div class="project-card">
+            <div class="project-slider" data-slider="0">
+                <button class="slider-arrow prev" onclick="changeSlide(0, -1)">❮</button>
+                <div class="slider-images">
+                    <img src="project1-screenshot1.jpg" alt="Project 1 Screenshot 1" class="slider-image">
+                    <img src="project1-screenshot2.jpg" alt="Project 1 Screenshot 2" class="slider-image">
+                    <img src="project1-screenshot3.jpg" alt="Project 1 Screenshot 3" class="slider-image">
+                </div>
+                <button class="slider-arrow next" onclick="changeSlide(0, 1)">❯</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(0, 0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(0, 1)"></span>
+                    <span class="slider-dot" onclick="goToSlide(0, 2)"></span>
                 </div>
             </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">LungLiteUS: AI-Powered Portable Ultrasound</h3>
-                    <p class="project-description">
-                        Developed lightweight AI model for analyzing lung ultrasound images to detect COVID-19 and 
-                        pneumonia. Designed for wireless ultrasound systems in resource-limited settings with 88% accuracy.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">TensorFlow</span>
-                        <span class="tech-badge">FastAPI</span>
-                        <span class="tech-badge">CNN</span>
-                        <span class="tech-badge">Medical AI</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">GPU-Accelerated Beamforming with OpenGL</h3>
-                    <p class="project-description">
-                        Implemented and compared four beamforming algorithms (DAS, DMAS, CF, MV) achieving up to 
-                        1264.7x speedup with GPU implementations. Demonstrated real-time ultrasound image reconstruction.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">CUDA</span>
-                        <span class="tech-badge">OpenGL</span>
-                        <span class="tech-badge">C++</span>
-                        <span class="tech-badge">Performance Optimization</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Hospital Management Information System</h3>
-                    <p class="project-description">
-                        Developed comprehensive HMIS for Mardan Medical Complex with modules for patient records, 
-                        appointments, billing, and medical staff management. Recognized by WHO standards.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">CodeIgniter</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">Healthcare IT</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Online Character Certificate System</h3>
-                    <p class="project-description">
-                        Led end-to-end development for Sindh Police with advanced security measures, real-time status 
-                        tracking, and integration with existing police infrastructure.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">PHP</span>
-                        <span class="tech-badge">MySQL</span>
-                        <span class="tech-badge">Security</span>
-                        <span class="tech-badge">API Integration</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="project-card">
-                <div class="project-content">
-                    <h3 class="project-title">Twitter Sentiment Analysis</h3>
-                    <p class="project-description">
-                        Processed 78,923 tweets related to Pakistan for sentiment classification into positive, negative, 
-                        or neutral categories with country-specific context awareness.
-                    </p>
-                    <div class="project-tech">
-                        <span class="tech-badge">Python</span>
-                        <span class="tech-badge">NLTK</span>
-                        <span class="tech-badge">TextBlob</span>
-                        <span class="tech-badge">Tweepy</span>
-                    </div>
+            <div class="project-content">
+                <h3 class="project-title">Real-time GPU-Accelerated Ultrafast Flow Imaging</h3>
+                <p class="project-description">
+                    Master's thesis project developing real-time ultrasound imaging system with CUDA-accelerated 
+                    beamforming and adaptive EVD-based clutter filtering. Achieved 4320 Hz for B-mode and 8 Hz 
+                    for blood flow imaging.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">CUDA</span>
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">Signal Processing</span>
+                    <span class="tech-badge">Real-time Systems</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Honors & Awards -->
+        <!-- Project 2: LungLiteUS -->
+        <div class="project-card">
+            <div class="project-slider" data-slider="1">
+                <button class="slider-arrow prev" onclick="changeSlide(1, -1)">❮</button>
+                <div class="slider-images">
+                    <img src="project2-screenshot1.jpg" alt="Project 2 Screenshot 1" class="slider-image">
+                    <img src="project2-screenshot2.jpg" alt="Project 2 Screenshot 2" class="slider-image">
+                </div>
+                <button class="slider-arrow next" onclick="changeSlide(1, 1)">❯</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(1, 0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(1, 1)"></span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">LungLiteUS: AI-Powered Portable Ultrasound</h3>
+                <p class="project-description">
+                    Developed lightweight AI model for analyzing lung ultrasound images to detect COVID-19 and 
+                    pneumonia. Designed for wireless ultrasound systems in resource-limited settings with 88% accuracy.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">TensorFlow</span>
+                    <span class="tech-badge">FastAPI</span>
+                    <span class="tech-badge">CNN</span>
+                    <span class="tech-badge">Medical AI</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3: GPU-Accelerated Beamforming -->
+        <div class="project-card">
+            <div class="project-slider" data-slider="2">
+                <button class="slider-arrow prev" onclick="changeSlide(2, -1)">❮</button>
+                <div class="slider-images">
+                    <img src="project3-screenshot1.jpg" alt="Project 3 Screenshot 1" class="slider-image">
+                    <img src="project3-screenshot2.jpg" alt="Project 3 Screenshot 2" class="slider-image">
+                    <img src="project3-screenshot3.jpg" alt="Project 3 Screenshot 3" class="slider-image">
+                </div>
+                <button class="slider-arrow next" onclick="changeSlide(2, 1)">❯</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(2, 0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(2, 1)"></span>
+                    <span class="slider-dot" onclick="goToSlide(2, 2)"></span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">GPU-Accelerated Beamforming with OpenGL</h3>
+                <p class="project-description">
+                    Implemented and compared four beamforming algorithms (DAS, DMAS, CF, MV) achieving up to 
+                    1264.7x speedup with GPU implementations. Demonstrated real-time ultrasound image reconstruction.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">CUDA</span>
+                    <span class="tech-badge">OpenGL</span>
+                    <span class="tech-badge">C++</span>
+                    <span class="tech-badge">Performance Optimization</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 4: Hospital Management -->
+        <div class="project-card">
+            <div class="project-slider" data-slider="3">
+                <button class="slider-arrow prev" onclick="changeSlide(3, -1)">❮</button>
+                <div class="slider-images">
+                    <img src="project4-screenshot1.jpg" alt="Project 4 Screenshot 1" class="slider-image">
+                    <img src="project4-screenshot2.jpg" alt="Project 4 Screenshot 2" class="slider-image">
+                </div>
+                <button class="slider-arrow next" onclick="changeSlide(3, 1)">❯</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(3, 0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(3, 1)"></span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Hospital Management Information System</h3>
+                <p class="project-description">
+                    Developed comprehensive HMIS for Mardan Medical Complex with modules for patient records, 
+                    appointments, billing, and medical staff management. Recognized by WHO standards.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">CodeIgniter</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">Healthcare IT</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 5: Character Certificate System -->
+        <div class="project-card">
+            <div class="project-slider" data-slider="4">
+                <button class="slider-arrow prev" onclick="changeSlide(4, -1)">❮</button>
+                <div class="slider-images">
+                    <img src="project5-screenshot1.jpg" alt="Project 5 Screenshot 1" class="slider-image">
+                    <img src="project5-screenshot2.jpg" alt="Project 5 Screenshot 2" class="slider-image">
+                </div>
+                <button class="slider-arrow next" onclick="changeSlide(4, 1)">❯</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(4, 0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(4, 1)"></span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Online Character Certificate System</h3>
+                <p class="project-description">
+                    Led end-to-end development for Sindh Police with advanced security measures, real-time status 
+                    tracking, and integration with existing police infrastructure.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">PHP</span>
+                    <span class="tech-badge">MySQL</span>
+                    <span class="tech-badge">Security</span>
+                    <span class="tech-badge">API Integration</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 6: Twitter Sentiment Analysis -->
+        <div class="project-card">
+            <div class="project-slider" data-slider="5">
+                <button class="slider-arrow prev" onclick="changeSlide(5, -1)">❮</button>
+                <div class="slider-images">
+                    <img src="project6-screenshot1.jpg" alt="Project 6 Screenshot 1" class="slider-image">
+                    <img src="project6-screenshot2.jpg" alt="Project 6 Screenshot 2" class="slider-image">
+                </div>
+                <button class="slider-arrow next" onclick="changeSlide(5, 1)">❯</button>
+                <div class="slider-nav">
+                    <span class="slider-dot active" onclick="goToSlide(5, 0)"></span>
+                    <span class="slider-dot" onclick="goToSlide(5, 1)"></span>
+                </div>
+            </div>
+            <div class="project-content">
+                <h3 class="project-title">Twitter Sentiment Analysis</h3>
+                <p class="project-description">
+                    Processed 78,923 tweets related to Pakistan for sentiment classification into positive, negative, 
+                    or neutral categories with country-specific context awareness.
+                </p>
+                <div class="project-tech">
+                    <span class="tech-badge">Python</span>
+                    <span class="tech-badge">NLTK</span>
+                    <span class="tech-badge">TextBlob</span>
+                    <span class="tech-badge">Tweepy</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    <!-- Honors & Awards -->
     <section id="awards">
         <h2>Honors & Awards</h2>
         <div class="awards-grid">
@@ -1108,6 +1265,50 @@ Before moving into research, I worked as a Full-Stack Software Engineer in the h
     </footer>
 
     <script>
+// Image Slider Functionality
+let currentSlides = [0, 0, 0, 0, 0, 0]; // Track current slide for each project
+
+function changeSlide(projectIndex, direction) {
+    const slider = document.querySelectorAll('.project-slider')[projectIndex];
+    const images = slider.querySelector('.slider-images');
+    const dots = slider.querySelectorAll('.slider-dot');
+    const totalSlides = dots.length;
+    
+    currentSlides[projectIndex] += direction;
+    
+    if (currentSlides[projectIndex] < 0) {
+        currentSlides[projectIndex] = totalSlides - 1;
+    } else if (currentSlides[projectIndex] >= totalSlides) {
+        currentSlides[projectIndex] = 0;
+    }
+    
+    updateSlider(projectIndex);
+}
+
+function goToSlide(projectIndex, slideIndex) {
+    currentSlides[projectIndex] = slideIndex;
+    updateSlider(projectIndex);
+}
+
+function updateSlider(projectIndex) {
+    const slider = document.querySelectorAll('.project-slider')[projectIndex];
+    const images = slider.querySelector('.slider-images');
+    const dots = slider.querySelectorAll('.slider-dot');
+    
+    images.style.transform = `translateX(-${currentSlides[projectIndex] * 100}%)`;
+    
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlides[projectIndex]);
+    });
+}
+
+// Auto-play sliders (optional)
+setInterval(() => {
+    for (let i = 0; i < 6; i++) {
+        changeSlide(i, 1);
+    }
+}, 5000); // Change every 5 seconds
+        
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
